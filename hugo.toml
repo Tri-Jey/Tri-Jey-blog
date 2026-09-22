@@ -1,0 +1,9 @@
+theme = "hugo-theme-reimu-0.16.0"
+title = "TriJey"
+baseURL = "/"
+locale = "zh-CN"
+
+[params]
+  author = "TriJey"
+  signature = "网安学习中..."
+  avatar = "/avatar/avatar.jpg"
