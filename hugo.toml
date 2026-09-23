@@ -1,6 +1,6 @@
 theme = "hugo-theme-reimu-0.16.0"
 title = "TriJey"
-baseURL = "/"
+baseURL = "https://tri-jey.github.io/Tri-Jey-blog/"
 locale = "zh-CN"
 
 [params]
