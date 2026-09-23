@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TriJey</title>
-    <link>//localhost:55523/post/</link>
+    <link>/post/</link>
     <description>Recent content from TriJey</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate>
     
     
-    <atom:link href="//localhost:55523/post/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,16 +23,16 @@
 
     <item>
       <title>Hello World</title>
-      <link>//localhost:55523/post/hello/</link>
+      <link>/post/hello/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
       <author>1153767630@qq.com (TriJey)</author>
-      <guid>//localhost:55523/post/hello/</guid>
+      <guid>/post/hello/</guid>
       <description>
         <![CDATA[<h1>Hello World</h1><p>作者：TriJey（1153767630@qq.com）</p>
         
           <p>💘 <a href="mailto:1153767630@qq.com">1153767630@qq.com</a> 💘</p>
         
-        <hr><p>本文2023-03-15首发于<a href='//localhost:55523/'>TriJey</a>，最后修改于2023-03-15</p>]]>
+        <hr><p>本文2023-03-15首发于<a href='/'>TriJey</a>，最后修改于2023-03-15</p>]]>
       </description>
       
     </item>
