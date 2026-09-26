@@ -2,6 +2,7 @@ theme = "hugo-theme-reimu-0.16.0"
 title = "TriJey"
 baseURL = "https://tri-jey.github.io/Tri-Jey-blog/"
 locale = "zh-CN"
+mainSections = ["post"]
 
 [params]
   author = "TriJey"

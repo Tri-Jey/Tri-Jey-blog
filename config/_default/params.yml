@@ -193,10 +193,16 @@ sort_order:
   archive: date-reverse # controlled by weight
   home: default # controlled by weight
 
+home:
+  posts:
+    enable: true
+    paginate: 10
+
+
 # Pagination
 paginate:
-  archive: # Number of posts per page in archive and taxonomy pages
-  post: # Number of posts per page in home and other list pages
+  archive: 10 # Number of posts per page in archive and taxonomy pages
+  post: 3 # Number of posts per page in home and other list pages
 
 ########################################
 # CSS

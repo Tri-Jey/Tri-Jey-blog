@@ -1,0 +1,598 @@
+<!doctype html>
+<html
+  lang="zh-CN" 
+  data-theme-mode="auto"
+  >
+  <head><script src="/Tri-Jey-blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Tri-Jey-blog/livereload" data-no-instant defer></script><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  网安新生Linux课外学习周报 | TriJey
+</title>
+<meta name="description" content="神临..."/><script>
+  window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"http://localhost:1313/Tri-Jey-blog/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/Tri-Jey-blog/css/loader.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="网安新生Linux课外学习周报 | TriJey" />
+  <meta
+    property="og:description"
+    content="神临..."
+  />
+  <meta property="og:url" content="http://localhost:1313/Tri-Jey-blog/post/note2/" />
+  <meta
+    property="og:site_name"
+    content="TriJey"
+  />
+  <meta property="og:image" content="http://localhost:1313/Tri-Jey-blog/images/banner.webp" />
+  <meta property="article:author" content="TriJey" />
+  <meta property="article:published_time" content="2026-09-26T10:00:00&#43;08:00" />
+  <meta property="article:modified_time" content="2026-09-26T10:00:00&#43;08:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="http://localhost:1313/Tri-Jey-blog/images/banner.webp" />
+<link rel="shortcut icon" href="/Tri-Jey-blog/favicon.ico"><link rel="stylesheet" href="/Tri-Jey-blog/css/main.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/Tri-Jey-blog/"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/Tri-Jey-blog/archives"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/Tri-Jey-blog/about"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/Tri-Jey-blog/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/Tri-Jey-blog/images/banner.webp" alt="网安新生Linux课外学习周报"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">网安新生Linux课外学习周报</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          
+          class="sidebar-right"  ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录的跳转与查看">目录的跳转与查看</a></li>
+    <li><a href="#文件">文件</a></li>
+    <li><a href="#帮助手册">帮助手册</a></li>
+    <li><a href="#用户--权限">用户  权限</a></li>
+    <li><a href="#分页查看文件">分页查看文件</a></li>
+    <li><a href="#vim文本编辑器">Vim文本编辑器</a></li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/Tri-Jey-blog/avatar/avatar.jpg"
+    data-sizes="auto"
+    alt="TriJey"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">TriJey</div>
+  <div class="sidebar-description">神临...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">2</div>
+  </div>
+  <a class="sidebar-state-category" href="/Tri-Jey-blog/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      0
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/Tri-Jey-blog/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </a>
+</div>
+<div class="sidebar-social" ></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/Tri-Jey-blog/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/Tri-Jey-blog/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/Tri-Jey-blog/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/Tri-Jey-blog/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-09-26 10:00:00 &#43;0800 CST" itemprop="datePublished"
+      >2026-09-26</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-09-26</time
+    >
+  </span></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="linuxnote-2">
+<a class="header-anchor" href="#linuxnote-2"></a>
+（Linux）NOTE 2
+</h1><h2 id="目录的跳转与查看">
+<a class="header-anchor" href="#%e7%9b%ae%e5%bd%95%e7%9a%84%e8%b7%b3%e8%bd%ac%e4%b8%8e%e6%9f%a5%e7%9c%8b"></a>
+目录的跳转与查看
+</h2><ol>
+<li>pwd（print working directory）:查看当前所在目录的完整路径</li>
+<li>ls（list）：罗列出当前目录下的文件和文件夹</li>
+</ol>
+<ul>
+<li>ls -l（ll）:详细信息（如权限，大小，时间，等）</li>
+<li>ls a：显示隐藏文件（以点开头的文件）</li>
+<li>ls -la：（以上两者都进行）
+<strong>其他内容已在上次写过，不再一一罗列（cd相关）</strong></li>
+</ul>
+<h2 id="文件">
+<a class="header-anchor" href="#%e6%96%87%e4%bb%b6"></a>
+文件
+</h2><ol>
+<li>mkdir（make directory）:新建文件夹</li>
+</ol>
+<ul>
+<li>创建单层。如：mkdir text，即创建一个名为text的文件夹；mkdir /note2/text，即在note2（该文件夹已存在的前提下）下创建一个名为text的文件夹</li>
+<li>创建嵌套形文件夹。如：mkdir -p a/b/c，即为创建文件a，文件a下一级为文件b，文件b下一级为文件c</li>
+</ul>
+<ol start="2">
+<li>touch：</li>
+</ol>
+<ul>
+<li>文件不存在时：创建空文件（不是文件夹，只是空文件，需要cat，vim往里面写内容）</li>
+<li>文件已存在时：更新文件的访问/修改时间戳（可以用于伪造文件创建时间）</li>
+</ul>
+<ol start="3">
+<li>cat（concatenate）：查找文件全部内容</li>
+<li>find：查找文件</li>
+</ol>
+<ul>
+<li>-name 名称：按名称查找，区分大小写</li>
+<li>-iname 名称：按名称查找，不区分大小写</li>
+<li>-type f：只查找普通文件</li>
+<li>-type d：只查找目录</li>
+<li>-maxdepth n：最多向下查找n层目录</li>
+</ul>
+<ol start="5">
+<li>cp（copy）：复制文件/目录</li>
+</ol>
+<ul>
+<li>cp 源文件 目标
+a.文件复制到已存在目录：把文件复制到目标目录里面
+b.目录复制到已存在目录：把目标复制到目标目录里面
+c.文件复制到已存在文件：用文件内容覆盖目标文件（不可恢复）
+d.目录复制到已存在文件：报错，无效操作
+<strong>注意：若目标目录中已存在同名对象，cp可能会覆盖或合并目标的内容</strong></li>
+<li>cp -r 源目录 目标目录（复制目录时必用）（递归复制），如：cp -r dir_a/dir_x，即把sir_a复制到dir_x中
+cp file_a new_file_a,可以把文件复制并改名为new_file_a</li>
+</ul>
+<ol start="6">
+<li>mv（move）：移动文件/重命名</li>
+</ol>
+<ul>
+<li>移动文件。如：mv note.txt ./mytext/</li>
+<li>重命名。如：mv note.txt new.txt</li>
+</ul>
+<ol start="7">
+<li>rm（remove）：删除文件/目录，高危</li>
+</ol>
+<ul>
+<li>rm 文件名：删除文件</li>
+<li>rm -r文件夹：删除目录</li>
+<li>rm -rf：强制递归删除（<strong>新手不要在根目录用</strong>）</li>
+<li>rm -i：删除前会询问用户。如：输入rm -i text.txt  ，会显示rm：是否删除普通文件&rsquo;text.txt&rsquo;
+输入y回车，删除；输入n回车，不删除。</li>
+</ul>
+<h2 id="帮助手册">
+<a class="header-anchor" href="#%e5%b8%ae%e5%8a%a9%e6%89%8b%e5%86%8c"></a>
+帮助手册
+</h2><ol>
+<li>man：打开命令官方手册。如：man ls，按q退出手册</li>
+<li>&ndash;help：简易帮助信息，快速看参数。如ls &ndash;help</li>
+</ol>
+<h2 id="用户--权限">
+<a class="header-anchor" href="#%e7%94%a8%e6%88%b7--%e6%9d%83%e9%99%90"></a>
+用户  权限
+</h2><ol>
+<li>su（switch user）：切换用户</li>
+</ol>
+<ul>
+<li>su root：切换到root超级管理员（需密码）</li>
+<li>su 普通用户名 切换普通用户</li>
+</ul>
+<ol start="2">
+<li>chomd（change mode）：修改文件/目录读写执行权限</li>
+</ol>
+<h2 id="分页查看文件">
+<a class="header-anchor" href="#%e5%88%86%e9%a1%b5%e6%9f%a5%e7%9c%8b%e6%96%87%e4%bb%b6"></a>
+分页查看文件
+</h2><ol>
+<li>more（比较老）：分页查看文件</li>
+</ol>
+<ul>
+<li>+行号：从指定行开始显示</li>
+<li>+/字符串：第一次匹配的位置开始显示
+<strong>Space：下一屏；Enter：下一行；q：退出</strong></li>
+</ul>
+<ol start="2">
+<li>less（比较现代，比较强）：更强的分页查看文件</li>
+</ol>
+<ul>
+<li>+行号：从指定行开始显示</li>
+<li>+/字符串：第一次匹配的位置开始显示</li>
+<li>-N：显示行号</li>
+<li>-S：长行不断行，可左右滚动
+<strong>Space：下一屏；Enter/下箭头：下一行；上箭头：上一行；左箭头：向左滚动长行，通常搭配 -s使用；右箭头：向右滚动长行，通常搭配 -s使用；q：退出；</strong></li>
+</ul>
+<ol start="3">
+<li>head：查看文件头部</li>
+</ol>
+<ul>
+<li>-n 行数：显示头部指定行数，默认10行</li>
+</ul>
+<ol start="4">
+<li>tail：查看文件尾部</li>
+</ol>
+<ul>
+<li>-n行数，显示尾部指定行数，默认10行</li>
+<li>-f：持续跟踪文件尾部，若有增多则打印（不断有文件写入）</li>
+</ul>
+<h2 id="vim文本编辑器">
+<a class="header-anchor" href="#vim%e6%96%87%e6%9c%ac%e7%bc%96%e8%be%91%e5%99%a8"></a>
+Vim文本编辑器
+</h2><ol>
+<li>先使用vim[待编辑文件路径]打开想编辑的文件，如vim test.txt</li>
+</ol>
+<ul>
+<li>i：进入插入模式，打字编辑</li>
+<li>Esc：退出命令模式</li>
+<li>:w 保存</li>
+<li>:q 退出</li>
+<li>:wq 保持并退出</li>
+<li>:q! 不保存强制退出</li>
+<li>/字符串，可以搜索指定字符串（普通模式）</li>
+<li>:set number ：开启行号显示（命令模式）</li>
+<li>:行号 ：跳转到指定行号（命令模式）</li>
+</ul>
+</div>
+    <footer class="article-footer"><ul class="article-category-list"></ul>
+<ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
+              data-sizes="auto"
+              alt="第一篇文章"
+              class="lazyload"
+            /><a
+          href="/Tri-Jey-blog/post/first/"
+          aria-label="前一篇:第一篇文章"
+          title="前一篇:第一篇文章"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">第一篇文章</h3>
+      </div></nav></article></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2026<span class="footer-info-sep rotate"></span>TriJey
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp;Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;140</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;00:02</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录的跳转与查看">目录的跳转与查看</a></li>
+    <li><a href="#文件">文件</a></li>
+    <li><a href="#帮助手册">帮助手册</a></li>
+    <li><a href="#用户--权限">用户  权限</a></li>
+    <li><a href="#分页查看文件">分页查看文件</a></li>
+    <li><a href="#vim文本编辑器">Vim文本编辑器</a></li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/Tri-Jey-blog/avatar/avatar.jpg"
+    data-sizes="auto"
+    alt="TriJey"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">TriJey</div>
+  <div class="sidebar-description">神临...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">2</div>
+  </div>
+  <a class="sidebar-state-category" href="/Tri-Jey-blog/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      0
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/Tri-Jey-blog/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </a>
+</div>
+<div class="sidebar-social" ></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/Tri-Jey-blog/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/Tri-Jey-blog/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/Tri-Jey-blog/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/Tri-Jey-blog/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/Tri-Jey-blog/js/main.js"  ></script><script src="/Tri-Jey-blog/js/aos.js"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/Tri-Jey-blog/js/pjax_main.js" data-pjax ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "TriJey",
+          title: "网安新生Linux课外学习周报",
+          url: "http:\/\/localhost:1313\/Tri-Jey-blog\/post\/note2\/",
+          description: " （Linux）NOTE 2 目录的跳转与查看 pwd（print working directory）:查看当前所在目录的完整路径 ls（list）：罗列出当前目录下的文件和文件夹 ls -l（ll）:详细信息（如权限，大小，时间，等） ls a：显示隐藏文件（以点开头的文件） ls -la：（以上两者都进行） 其他内容已在上次写过，不再一一罗列（cd相关） 文件 mkdir（make directory）:新建文件夹 创建单层。如：mkdir text，即创建一个名为text的文件夹；mkdir \/note2\/text，即在note2（该文件夹已存在的前提下）下创建一个名为text的文件夹 …",
+          cover: "http:\/\/localhost:1313\/Tri-Jey-blog\/images\/banner.webp",
+        };
+      </script><script src="/Tri-Jey-blog/js/insert_highlight.js" data-pjax ></script><script src="/Tri-Jey-blog/js/tabs.js" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+        }
+        pswp()
+      </script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>
