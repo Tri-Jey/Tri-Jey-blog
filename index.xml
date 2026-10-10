@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TriJey</title><link>https://tri-jey.github.io/Tri-Jey-blog/</link><description>Recent content from TriJey</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>1153767630@qq.com (TriJey)</managingEditor><webMaster>1153767630@qq.com (TriJey)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sat, 26 Sep 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://tri-jey.github.io/Tri-Jey-blog/index.xml" rel="self" type="application/rss+xml"/><item><title>网安新生Linux课外学习周报</title><link>https://tri-jey.github.io/Tri-Jey-blog/post/note2/</link><pubDate>Sat, 26 Sep 2026 10:00:00 +0800</pubDate><author>1153767630@qq.com (TriJey)</author><guid>https://tri-jey.github.io/Tri-Jey-blog/post/note2/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TriJey</title><link>https://tri-jey.github.io/Tri-Jey-blog/</link><description>Recent content from TriJey</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>1153767630@qq.com (TriJey)</managingEditor><webMaster>1153767630@qq.com (TriJey)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sat, 10 Oct 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://tri-jey.github.io/Tri-Jey-blog/index.xml" rel="self" type="application/rss+xml"/><item><title>网安新生Linux课外学习周报</title><link>https://tri-jey.github.io/Tri-Jey-blog/post/note2/</link><pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate><author>1153767630@qq.com (TriJey)</author><guid>https://tri-jey.github.io/Tri-Jey-blog/post/note2/</guid><description>
 <![CDATA[<h1>网安新生Linux课外学习周报</h1><p>作者：TriJey（1153767630@qq.com）</p>
         
           <h1 id="linuxnote-2">
@@ -285,7 +285,7 @@ Vim文本编辑器
 <li>uname ：查看系统信息， uname -a  显示内核版本、系统架构等</li>
 </ol>
         
-        <hr><p>本文2026-09-26首发于<a href='https://tri-jey.github.io/Tri-Jey-blog/'>TriJey</a>，最后修改于2026-09-26</p>]]></description></item><item><title>第一篇文章</title><link>https://tri-jey.github.io/Tri-Jey-blog/post/first/</link><pubDate>Wed, 23 Sep 2026 14:56:11 +0800</pubDate><author>1153767630@qq.com (TriJey)</author><guid>https://tri-jey.github.io/Tri-Jey-blog/post/first/</guid><description>
+        <hr><p>本文2026-10-10首发于<a href='https://tri-jey.github.io/Tri-Jey-blog/'>TriJey</a>，最后修改于2026-10-10</p>]]></description></item><item><title>第一篇文章</title><link>https://tri-jey.github.io/Tri-Jey-blog/post/first/</link><pubDate>Wed, 23 Sep 2026 14:56:11 +0800</pubDate><author>1153767630@qq.com (TriJey)</author><guid>https://tri-jey.github.io/Tri-Jey-blog/post/first/</guid><description>
 <![CDATA[<h1>第一篇文章</h1><p>作者：TriJey（1153767630@qq.com）</p>
         
           <h1 id="my-first-blog-post">
