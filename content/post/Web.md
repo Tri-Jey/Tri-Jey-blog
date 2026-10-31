@@ -1,6 +1,6 @@
 +++
 title = "网安新生Web学习周报"
-date = 2026-10-25T10:00:00+08:00
+date = 2026-10-31T10:00:00+08:00
 draft = false
 author = "TriJey"
 +++
@@ -344,3 +344,88 @@ Wireshark用来分析TCP握手、ARP、ICMP；Burp专注Web应用HTTP攻击
 9. HTTP走私（HTTP Request Smuggling）：CL/TE、TE/TE冲突，CTF考点
 10. HTTP慢速攻击：Slowloris，慢慢发送报文耗尽连接，属于DoS
 11. 目录枚举：HEAD/GET探测404/200，配合状态码扫目录
+
+## Web信息收集（目录/信息泄露）
+1. 目录扫描（目录爆破）
+- 原理：网站服务器存在可访问的目录、后台路径，通过字典批量请求，根据响应状态码判断是否存在。
+- 核心：web服务器默认会对目录返回列表（目录浏览/目录遍历），属于配置失误。
+
+2. 敏感文件泄露
+- 开发、测试、备份遗留的文件没有删除，直接放在web根目录，外网可访问。
+
+3. 区分两个容易混淆的名词
+- 目录浏览（Directory Listing）：打开目录直接列出里面所有文件（apache、nginx开启autoindex）
+- 目录遍历（LFI本地文件包含）：是漏洞， ../ 跨目录读取服务器任意文件，不属于信息收集扫描，是漏洞利用，不要搞混。
+
+4. 常见状态码含义
+-  200 OK ：资源存在，可访问
+-  301/302 ：重定向
+-  403 Forbidden ：目录存在，但是禁止访问（有价值，说明路径真实存在）
+-  404 Not Found ：不存在
+-  401 Unauthorized ：需要账号密码认证（后台管理页）
+
+5. 常用扫描工具 
+- dirsearch（python写，最常用）
+- gobuster（go语言，速度快，推荐）
+- dirb（kali自带）
+**命令示例：**
+- gobuster dir -u http://xxx -w 字典.txt 
+- python3 dirsearch.py -u http://xxx 
+
+6. 高频敏感目录
+-  /admin 、 /admin.php 、 /manage 、 /manager  后台管理
+-  /phpmyadmin 、 /phpMyAdmin  数据库管理面板
+-  /backup 、 /bak 、 /data 、 /db  备份目录
+-  /test 、 /dev 、 /debug  测试开发目录
+-  .git 、 .svn 、 .hg  版本控制目录（源码泄露）
+-  /robots.txt  网站爬虫协议（重点！开发会在这里写不希望爬虫访问的路径）
+
+7. 高频敏感文件泄露
+- 备份类文件：
+ xxx.bak 、 xxx.backup 、 xxx.old 、 xxx.~ 、 xxx.zip 、 xxx.tar.gz 、 xxx.sql （数据库备份）
+**例： index.php.bak  直接下载源码**
+
+8. 版本控制泄漏 
+-  .git/  目录泄露：可以拿到完整源代码
+-  .svn/  subversion源码泄露
+-  .DS_Store  mac系统文件索引，泄露目录文件名
+
+9. 配置文件
+- config.php 、 config.inc.php 、 web.config 、 nginx.conf 、 httpd.conf 
+里面经常包含数据库账号密码、密钥。
+
+10. 日志文件
+ access.log 、 error.log ，记录访问记录、参数、报错信息
+11. 其他
+ robots.txt 、 readme.md 、 install.php （安装页面，没删可以重装）、 env （.env，存密钥）
+
+12. robots.txt
+- 访问地址：http://目标/robots.txt
+- 作用：给搜索引擎爬虫看的协议，Disallow 后面写禁止爬虫访问的路径
+- 安全意义：相当于开发者主动告诉攻击者敏感路径
+- 注意：robots.txt只是协议，爬虫/攻击者可以无视限制直接访问
+
+13. 信息收集其他辅助手段（和目录扫描配套）
+- 源码查看：F12看页面源码，注释里面经常出现路径、账号、接口、测试地址
+- 前端JS文件：.js文件里泄露接口地址、密钥、后台路径​
+- 子域名收集：oneforall、subfinder（属于信息收集，但不属于目录扫描）
+- 备案、whois、DNS记录（外围信息收集）
+
+14. 风险&危害（简答题考点） 
+- 拿到源码 → 代码审计，找漏洞
+- 获取数据库备份文件 → 直接拖库，拿到账号密码
+- 找到后台地址 → 尝试爆破、弱口令登录
+- 拿到配置文件 → 数据库账号、API密钥泄露
+
+15. 修复方案 
+- 关闭web服务器的目录浏览（autoindex关闭）
+- 上线前删除所有备份文件、测试文件、.git、.svn、install安装文件
+- 敏感配置文件放在web根目录之外，外网无法直接访问
+- 备份文件统一放到内网，不要放在web站点内
+- 后台管理目录增加IP白名单、强认证、验证码
+
+16. **注意事项：** 
+- 目录扫描必须拿到授权，无授权扫描属于违法
+- 403≠没用，403代表路径真实存在，是重要线索
+- 区分：目录浏览（配置失误） VS 文件包含漏洞（代码漏洞）
+- 不要只依赖工具，robots.txt、页面源码是低成本优先检查点
