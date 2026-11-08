@@ -1,6 +1,6 @@
 +++
 title = "网安新生Web学习周报"
-date = 2026-10-31T10:00:00+08:00
+date = 2026-11-08T10:00:00+08:00
 draft = false
 author = "TriJey"
 +++
@@ -429,3 +429,87 @@ Wireshark用来分析TCP握手、ARP、ICMP；Burp专注Web应用HTTP攻击
 - 403≠没用，403代表路径真实存在，是重要线索
 - 区分：目录浏览（配置失误） VS 文件包含漏洞（代码漏洞）
 - 不要只依赖工具，robots.txt、页面源码是低成本优先检查点
+
+## burp抓包知识点
+### 原理
+- **Burp是中间人代理（MITM），浏览器流量先走Burp，Burp再转发给服务器；**
+默认监听地址： 127.0.0.1:8080
+- HTTP：直接抓，不需要证书
+- HTTPS：需要安装Burp自带CA证书，Burp解密流量、看完再加密转发，不然浏览器报证书风险，只能看到加密乱码
+
+### 基础配置步骤
+1. Proxy → Options，确认监听  127.0.0.1:8080  Running
+2. 浏览器代理设置为  127.0.0.1:8080 ，推荐FoxyProxy插件一键切换代理（不用反复改系统代理）
+3. 浏览器访问  http://burp ，下载  cacert.der  证书
+4. 证书导入受信任的根证书颁发机构（存错位置无效！），重启浏览器生效 
+5. Proxy → Intercept： Intercept is on =开启拦截； off =只记录历史，不卡住请求
+6. Intercept面板4个按钮
+- Forward：放行当前数据包，发给服务器
+- Drop：丢掉包，不发送
+- Action：发送到其他模块（Repeater/Intruder）、编码、切换拦截响应包
+- Change request method：GET/POST互转（常用小技巧）
+7. HTTP history
+- Intercept关掉之后，所有流量都会记录在这里，可以筛选状态码、搜索参数、右键转发数据包，是梳理网站接口的核心面板
+
+### 八大核心模块（你现阶段优先掌握前4个）
+1. Proxy（代理，抓包核心）
+抓包、拦截、改包、记录历史流量、WebSocket抓包
+2. Repeater（重放器）快捷键Ctrl+R
+- 手动反复发包，修改参数、Cookie、请求头、请求体，对比响应变化。
+- 用途：IDOR越权、参数篡改、测试注入、重复提交（短信/订单）
+- 左边请求，右边服务器响应，Send发送
+3. Intruder（爆破/模糊测试）快捷键Ctrl+I
+自动批量替换标记位置的payload，适合弱口令爆破、fuzz、ID遍历
+**4种攻击模式：**
+- Sniper【狙击手】：一套字典，轮流替换多个标记点（最常用）
+- Battering ram：同一套值，全部标记位置填一样内容
+- Pitchfork【草叉】：多组字典一一对应（账号+密码配对）
+- Cluster bomb【集束炸弹】：所有字典全排列组合，爆破量大，社区版限速很卡。
+**注意：社区版（免费版）Intruder有请求速率限制，不适合超大字典**
+4. Decoder（编码解码）
+URL、Base64、Hex、HTML编码，解码乱码，构造payload，日常高频小工具
+5. Comparer（对比）
+两个请求/响应对比，高亮差异，适合找权限不同、token差异
+6. Target（目标）
+SiteMap自动整理网站目录、接口；Scope作用域！一定要设scope，只抓目标网站，防止一堆无关流量干扰
+7. Scanner（扫描器）Pro版才有，社区版无
+自动扫SQLi、XSS等漏洞
+8. Extender（插件市场BApp Store）
+安装插件：比如JSON美化、Shodan、Upload扫描、Java反序列化插件等
+
+### 数据包基础阅读（HTTP包结构）
+```http
+POST /login HTTP/1.1
+Host: test.com
+User-Agent: xxx
+Cookie: session=xxxx
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+username=admin&password=123456
+```
+- 请求行：方法、路径、协议
+- 请求头：Host、UA、Cookie、Content-Type、Token、Referer
+- 请求体：POST参数、JSON、表单数据
+
+**Content-Type区分：**
+`application/x-www-form-urlencoded`
+普通表单
+`application/json` &nbsp;&nbsp; json接口（现在前后端接口最多）
+`multipart/form-data`
+文件上传
+
+### 高频踩坑
+1. 抓不到HTTPS：证书装错位置、没重启浏览器、开了VPN/其他代理抢占流量、HSTS缓存
+2. 抓到包但是空白乱码 = CA证书没生效
+3. 端口不匹配：Burp监听8081，浏览器填8080，流量走不过来
+4. 很多APP/小程序证书校验（SSL Pinning证书锁），就算装了证书也抓不到，需要frida、插件绕过
+5. Scope没配置，历史记录堆满百度、广告、cdn流量，很难找目标包
+6. Intruder爆破的时候没关拦截，包被卡住
+
+### 新手标准练习流程
+1. PortSwigger Web Security Academy靶场（官方免费，最适合入门）
+2. 打开Proxy，浏览器走代理，Intercept off，先逛一遍网站，在HTTP history收集接口
+3. 找到登录/提交接口，右键Send to Repeater，修改参数测试
+4. 登录包右键Send to Intruder，标记密码位置，导入密码字典爆破
+5. Decoder处理编码payload
