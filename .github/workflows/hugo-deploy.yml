@@ -22,15 +22,14 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Hugo Extended（内置 Dart Sass）
+      - name: Setup Hugo Extended (built-in Dart Sass)
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.136.5"
+          hugo-version: "0.166.0"
           extended: true
 
       - name: Build site
         run: hugo --minify
-
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v5
         with:
